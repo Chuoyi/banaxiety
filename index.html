@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>焦虑自评量表</title>
+  <style>
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+h1, button, #score, #result {
+  text-align: center;
+}
+h3 {
+  color: blue;
+  text-align: left;
+}
+h4 {
+  text-align: left;
+}
+  </style>
+</head>
+<body>
+  <h1>焦虑自评量表</h1>
+  <form>
+    <p>1. 感觉紧张，焦虑或急切</p>
+    <label><input type="radio" name="question1" value="0"> 沒有</label>
+    <label><input type="radio" name="question1" value="1"> 有几天</label>
+    <label><input type="radio" name="question1" value="2"> 一半以上时间</label>
+    <label><input type="radio" name="question1" value="3"> 几乎天天</label>
+
+    <p>2. 不能够停止或控制担忧</p>
+    <label><input type="radio" name="question1" value="0"> 沒有</label>
+    <label><input type="radio" name="question1" value="1"> 有几天</label>
+    <label><input type="radio" name="question1" value="2"> 一半以上时间</label>
+    <label><input type="radio" name="question1" value="3"> 几乎天天</label>
+
+    <p>3. 对各种各样的事情担忧过多</p>
+    <label><input type="radio" name="question1" value="0"> 沒有</label>
+    <label><input type="radio" name="question1" value="1"> 有几天</label>
+    <label><input type="radio" name="question1" value="2"> 一半以上时间</label>
+    <label><input type="radio" name="question1" value="3"> 几乎天天</label>
+
+    <p>4. 很难放松下来</p>
+    <label><input type="radio" name="question1" value="0"> 沒有</label>
+    <label><input type="radio" name="question1" value="1"> 有几天</label>
+    <label><input type="radio" name="question1" value="2"> 一半以上时间</label>
+    <label><input type="radio" name="question1" value="3"> 几乎天天</label>
+
+    <p>5. 由于不安而无法静坐</p>
+    <label><input type="radio" name="question1" value="0"> 沒有</label>
+    <label><input type="radio" name="question1" value="1"> 有几天</label>
+    <label><input type="radio" name="question1" value="2"> 一半以上时间</label>
+    <label><input type="radio" name="question1" value="3"> 几乎天天</label>
+
+    <p>6. 变得容易烦恼或急躁</p>
+    <label><input type="radio" name="question1" value="0"> 沒有</label>
+    <label><input type="radio" name="question1" value="1"> 有几天</label>
+    <label><input type="radio" name="question1" value="2"> 一半以上时间</label>
+    <label><input type="radio" name="question1" value="3"> 几乎天天</label>
+
+    <p>7. 感到似乎将有可怕的事情发生而害怕</p>
+    <label><input type="radio" name="question1" value="0"> 沒有</label>
+    <label><input type="radio" name="question1" value="1"> 有几天</label>
+    <label><input type="radio" name="question1" value="2"> 一半以上时间</label>
+    <label><input type="radio" name="question1" value="3"> 几乎天天</label>
+</br>
+</br>
+</br>
+    <button type="button" onclick="calculateScore()">提交</button>
+
+    <h4><p>你的总得分为：<span id="score"></span></p></h4>
+    <h3><p><span id="result"></span></p></h3>
+
+</form>
+
+
+
+  <script>
+    function calculateScore() {
+      // 获取每个问题的答案选项
+      var q1Answer = parseInt(document.querySelector('input[name="question1"]:checked').value);
+      var q2Answer = parseInt(document.querySelector('input[name="question2"]:checked').value);
+      var q3Answer = parseInt(document.querySelector('input[name="question3"]:checked').value);
+      var q4Answer = parseInt(document.querySelector('input[name="question4"]:checked').value);
+      var q5Answer = parseInt(document.querySelector('input[name="question5"]:checked').value);
+      var q6Answer = parseInt(document.querySelector('input[name="question6"]:checked').value);
+      var q7Answer = parseInt(document.querySelector('input[name="question7"]:checked').value);
+
+      // 计算总得分
+      var totalScore = q1Answer + q2Answer + q3Answer + q4Answer + q5Answer + q6Answer + q7Answer;
+
+      // 显示总得分
+      document.getElementById("score").innerHTML = totalScore;
+    
+      // 显示结果
+      var result = document.getElementById("result");
+      if (totalScore >= 0 && totalScore <= 2) {
+        result.innerHTML = "无焦虑情况";
+      } else if (totalScore >= 3 && totalScore <= 5) {
+        result.innerHTML = "轻度焦虑";
+      } else if (totalScore >= 6 && totalScore <= 10) {
+        result.innerHTML = "中度焦虑";
+      } else {
+        result.innerHTML = "可能有重度焦虑，建议咨询专业人士";
+      }
+}
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
